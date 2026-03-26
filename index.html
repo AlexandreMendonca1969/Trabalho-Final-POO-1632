@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nome do Restaurante</title>
+  <link rel="stylesheet" href="style.css">
+  </link>
+</head>
+
+<body>
+  <div class="ajusta-imagem">
+    <img src="img/capa.jpg" alt="Homem cozinhando">
+  </div>
+  <div class="conteudo card espacamento-superior"
+    style="display: flex; justify-content: space-between; align-items: center;">
+    <div id="nome-restaurante" style="display: flex; align-items: center;">
+      <div class="circulo-imagem espacamento-direita">
+        <img src="img/logo.jpg" alt="Logotipo restaurante">
+      </div>
+      <h1>Nome do Restaurante</h1>
+    </div>
+    <button type="button" id="btn-cadastrar" class="btn">Novo Produto</button>
+  </div>
+  <div id="controle-produtos" class=".espacamento-inferior" style="display: none;">
+    <div id="form-inclusao" class="card" >
+      <h2>Adicionar Novo Produto</h2>
+      <form id="form-produtos">
+        <div class="form-campos">
+          <label for="nome-produtos">Nome do Produto:</label>
+          <input type="text" id="nome-produtos" name="nome-produtos" placeholder="Insira o nome do produto..." />
+        </div>
+
+        <div class="form-campos">
+          <label for="imgURL">URL da Imagem:</label>
+          <input type="file" id="imgURL" name="imgURL" accept="image/*" required />
+          <!-- <input type="url" id="imgURL" name="imgURL" placeholder="Insira o link da imagem" required /> -->
+        </div>
+
+        <div class="preview-container" id="preview-container" style="display: none">
+          <label>Preview:</label>
+          <img id="imgPreview" src="" alt="Preview da imagem" />
+        </div>
+
+        <div class="form-campos">
+          <label for="descricao-produtos">Descrição:</label>
+          <textarea id="descricao-produtos" name="descricao-produtos" placeholder="Descrição do produto..."
+            maxlength="100" rows="4" cols="50" required></textarea>
+          <span id="contador-descricao">Carecteres restantes: 100</span>
+        </div>
+
+        <div class="form-campos">
+          <label for="preco-produtos">Preço (R$):</label>
+          <input type="number" id="preco-produtos" name="preco-produtos" step="0.01" min="0" placeholder="0.00"
+            required />
+        </div>
+        <fieldset>
+          <legend>Tipo de produto</legend>
+          <div class="form-campos">
+            <input type="radio" id="lanche" name="produto" value="lanche" />
+            <label for="lanche">Prato</label>
+          </div>
+          <div id="tipo-produto">
+            <div class="form-campos">
+              <input type="radio" id="bebida" name="produto" value="bebida" />
+              <label for="bebida">Bebida</label>
+            </div>
+          </div>
+
+          <div id="alcoolico" style="display: none">
+            <div class="form-campos">
+              <input type="radio" id="nao-alcoolico" name="alcoolico" value="nao" />
+              <label for="nao-alcoolico">Não Alcoólico</label>
+            </div>
+            <div class="form-campos">
+              <input type="radio" id="sim-alcoolico" name="alcoolico" value="sim-alcoolico" />
+              <label for="sim-alcoolico">Alcoólico</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="btn-salvar" class="btn">Salvar</button>
+        <button type="reset" id="btn-limpar" class="btn">Limpar</button>
+        <button type="button" id="btn-cancelar" class="btn">Cancelar</button>
+      </form>
+    </div>
+
+  </div>
+  <div class="container-geral">
+    <div id="contanier-produtos">
+      <div class="card">
+        <div id="titulo-bebida" class="titulo"></div>
+        <div class="container grid-cardapio-bebida"></div>
+      </div>
+      <div class="card">
+        <div id="titulo-lanche" class="titulo"></div>
+        <div class="container grid-cardapio-lanche">
+        </div>
+      </div>
+    </div>
+    <div id="container-vendas">
+      <div id="controle-vendas" class="card">
+        <h2>Vendas Realizadas Hoje:</h2>
+        <span id="total-diario">R$ 0,00</span>
+      </div>
+      <div id="container-pedido-vendas" class="card">
+        <h2>Vendas</h2>
+        <p id="pedido-vazio">Sem pedido!</p>
+        <div id="lista-vendas">
+        </div>
+        <div>
+          <div class="totalizador-pedido">
+            <span>Total</span>
+            <span id="total-pedido">R$ 0,00</span>
+          </div>
+          <button id="fechar-pedido" class="btn" disabled>Finalizar Pedido</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>

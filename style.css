@@ -1,0 +1,266 @@
+body {
+  margin: 50px;
+  padding: 0;
+}
+
+.ajusta-imagem {
+  width: 100%;
+  height: 30vh; /* ajuste para o “tamanho de corte” que você quer */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.ajusta-imagem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.circulo-imagem {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.circulo-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.espacamento-superior {
+  margin-top: 20px;
+}
+
+.espacamento-direita {
+  margin-right: 20px;
+}
+
+.espacamento-esquerda {
+  margin-left: 20px;
+}
+
+.espacamento-inferior {
+  margin-bottom: 20px;
+}
+
+.grid-cardapio-bebida,
+.grid-cardapio-lanche {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+#form-inclusao {
+  flex: 1;
+  min-width: 350px;
+  position: sticky;
+  top: 20px;
+}
+
+.form-campos {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-campos label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+fieldset .form-campos {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+#alcoolico {
+  margin-left: 25px;
+}
+
+.btn {
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+#preview-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+#imgPreview {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.card-produto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.card-produto .descricao-produto {
+  min-height: 80px;
+  margin: 10px 0;
+}
+
+.card-produto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.card-produto h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-produto p {
+  margin: 5px 0;
+}
+
+small {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+#controle-vendas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 400px;
+}
+
+#container-pedido-vendas {
+  min-width: 400px;
+}
+
+.container-geral {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+#contanier-produtos {
+  flex: 3;
+}
+
+#container-vendas {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  min-width: 300px;
+}
+
+.itens-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.listagem {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex: 1;
+}
+
+.listagem p,
+.listagem span {
+  margin: 0;
+  padding: 5px;
+  white-space: nowrap;
+}
+
+.totalizador-pedido {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.btn-remover {
+  background: none;
+  border: none;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container-geral {
+    flex-direction: column;
+  }
+
+  #container-vendas {
+    position: static;
+    width: 100%;
+    min-width: unset;
+    order: -1;
+    margin-bottom: 20px;
+  }
+  #contanier-produtos {
+    width: 100%;
+  }
+
+  .grid-cardapio-bebida,
+  .grid-cardapio-lanche {
+    grid-template-columns: 1fr;
+  }
+}
