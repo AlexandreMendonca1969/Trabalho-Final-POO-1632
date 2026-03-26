@@ -78,8 +78,6 @@ btnCadastrarProduto.addEventListener("click", () => {
   controleProdutos.style.display = "flex";
 });
 
-function previewImg() {}
-
 function falhaCarregarImg() {
   imgPreview.style.display = "none";
   if (!document.getElementById("erro-msg")) {
@@ -98,15 +96,27 @@ InputImgUrl.addEventListener("change", (e: Event) => {
     "preview-container",
   ) as HTMLElement;
   const erroExistente = document.getElementById("erro-msg");
+
   if (erroExistente) erroExistente.remove();
+
   if (target.files && target.files[0]) {
     const arquivo = target.files[0];
-    urlImagemSelecionada = URL.createObjectURL(arquivo); // 3. Exibe o Preview
-    previewImg.src = urlImagemSelecionada;
-    previewContainer.style.display = "block";
-    previewImg.style.display = "block";
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const base64 = event.target?.result as string;
+
+      urlImagemSelecionada = base64;
+      previewImg.src = base64;
+
+      previewContainer.style.display = "block";
+      previewImg.style.display = "block";
+    };
+
+    reader.readAsDataURL(arquivo);
   } else {
     previewContainer.style.display = "none";
+    urlImagemSelecionada = "";
   }
 });
 
